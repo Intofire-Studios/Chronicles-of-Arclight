@@ -5,37 +5,37 @@ def menu_inventory(p):
     rpcinventoryupdate(p)
     consoleClear()
     print("---")
-    print("{}'s inventory!".format(p.name))
+    print(f"{p.name}'s inventory!")
     print("---")
-    print("Pickaxe: {}/{}".format(p.pickaxe, p.max_pickaxe))
-    print("Sword: {} ({}/{})".format(p.damage, p.sword, p.max_sword))
-    print("Armor: {}/{}".format(p.armor, p.max_armor))
+    print(f"Pickaxe: {p.pickaxe}/{p.max_pickaxe}")
+    print(f"Sword: {p.damage} ({p.sword}/{p.max_sword})")
+    print(f"Armor: {p.armor}/{p.max_armor}")
     if p.stone+p.copper+p.tin+p.iron+p.aluminum+p.gold+p.crystal+p.diamond+p.emerald+p.topaz+p.ruby+p.silver>0:
         print("---")
     if p.stone != 0:
-        print("Stone: {}".format(p.stone))
+        print(f"Stone: {p.stone}")
     if p.copper != 0:
-        print("Сopper: {}".format(p.copper))
+        print(f"Сopper: {p.copper}")
     if p.tin != 0:
-        print("Tin: {}".format(p.tin))
+        print(f"Tin: {p.tin}")
     if p.iron != 0:
-        print("Iron: {}".format(p.iron))
+        print(f"Iron: {p.iron}")
     if p.aluminum != 0:
-        print("Aluminum: {}".format(p.aluminum))
+        print(f"Aluminum: {p.aluminum}")
     if p.silver != 0:
-        print("Silver: {}".format(p.silver))
+        print(f"Silver: {p.silver}")
     if p.topaz != 0:
-        print("Topaz: {}".format(p.topaz))
+        print(f"Topaz: {p.topaz}")
     if p.gold != 0:
-        print("Gold: {}".format(p.gold))
+        print(f"Gold: {p.gold}")
     if p.crystal != 0:
-        print("Crystal: {}".format(p.crystal))
+        print(f"Crystal: {p.crystal}")
     if p.diamond != 0:
-        print("Diamond: {}".format(p.diamond))
+        print(f"Diamond: {p.diamond}")
     if p.ruby != 0:
-        print("Ruby: {}".format(p.ruby))
+        print(f"Ruby: {p.ruby}")
     if p.emerald != 0:
-        print("Emerald: {}".format(p.emerald))
+        print(f"Emerald: {p.emerald}")
     print("---")
     input("Enter to continue.")
     consoleClear()

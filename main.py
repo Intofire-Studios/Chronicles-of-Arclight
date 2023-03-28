@@ -1,7 +1,6 @@
-from extensions import richPresence, fileAssociation, saveCreate, saveCheck, savePort, saveCheatCheck
+from extensions import richPresence, fileAssociation, saveCreate, saveCheck, saveCheatCheck
 
 saveCheatCheck.saveCheatCheck(fileAssociation.lastsavepath, fileAssociation.saves)
-savePort.savePort(fileAssociation.lastsavepath, fileAssociation.saves)
 saveCreate.saveCreate(fileAssociation.lastsavepath, fileAssociation.saves)
 saveCheck.saveCheck(fileAssociation.lastsavepath, fileAssociation.saves)
 

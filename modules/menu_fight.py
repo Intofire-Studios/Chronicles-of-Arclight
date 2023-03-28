@@ -8,45 +8,45 @@ from modules import enemies
 from time import sleep
 from math import ceil
 
-def menu_fight(p):  # sourcery no-metrics
+def menu_fight(p):
     saveProcess(p, saves, lastsavepath)
     usedpwpotions = 0
     rpcfightupdate(p)
 
     if p.location == "spawn":
-        enemy = choice(enemies.enemyspawn)
+        enemy = choice(enemies.enemy_spawn["regular"] + enemies.enemy_spawn["normal"] + enemies.enemy_spawn["boss"])
 
-        if enemy in enemies.enemyspawnregular:
+        if enemy in enemies.enemy_spawn["regular"]:
             ehp = randint(10,20) + ceil(p.max_hp * 0.33)
             epw = 2 * randint(1,5) + ceil(p.pw * 0.25)
-        elif enemy in enemies.enemyspawnnormal:
+        elif enemy in enemies.enemy_spawn["normal"]:
             ehp = randint(30,50) + ceil(p.max_hp * 0.33)
             epw = 2 * randint(3,7) + ceil(p.pw * 0.25)
-        elif enemy in enemies.enemyspawnboss:
+        elif enemy in enemies.enemy_spawn["boss"]:
             ehp = randint(75,100) + ceil(p.max_hp * 0.33)
             epw = 2 * randint(5,10) + ceil(p.pw * 0.25)
     elif p.location == "sands":
-        enemy = choice(enemies.enemysands)
+        enemy = choice(enemies.enemy_sands["regular"] + enemies.enemy_sands["normal"] + enemies.enemy_sands["boss"])
 
-        if enemy in enemies.enemysandsregular:
+        if enemy in enemies.enemy_sands["regular"]:
             ehp = randint(30,50) + ceil(p.max_hp * 0.5)
             epw = 2 * randint(2,10) + ceil(p.pw * 0.5)
-        elif enemy in enemies.enemysandsnormal:
+        elif enemy in enemies.enemy_sands["normal"]:
             ehp = randint(55,95) + ceil(p.max_hp * 0.5)
             epw = 2 * randint(4,12) + ceil(p.pw * 0.5)
-        elif enemy in enemies.enemysandsboss:
+        elif enemy in enemies.enemy_sands["boss"]:
             ehp = randint(100,130) + ceil(p.max_hp * 0.5)
             epw = 2 * randint(10,20) + ceil(p.pw * 0.5)
     elif p.location == "snow kingdom":
-        enemy = choice(enemies.enemysnowkingdom)
+        enemy = choice(enemies.enemy_snow_kingdom["regular"] + enemies.enemy_snow_kingdom["normal"] + enemies.enemy_snow_kingdom["boss"])
 
-        if enemy in enemies.enemysnowkingdomregular:
+        if enemy in enemies.enemy_snow_kingdom["regular"]:
             ehp = randint(40,60) + ceil(p.max_hp * 0.5)
             epw = 2 * randint(4,15) + ceil(p.pw * 0.5)
-        elif enemy in enemies.enemysnowkingdomnormal:
+        elif enemy in enemies.enemy_snow_kingdom["normal"]:
             ehp = randint(70,100) + ceil(p.max_hp * 0.5)
             epw = 2 * randint(6,20) + ceil(p.pw * 0.5)
-        elif enemy in enemies.enemysnowkingdomboss:
+        elif enemy in enemies.enemy_snow_kingdom["boss"]:
             ehp = randint(120,150) + ceil(p.max_hp * 0.5)
             epw = 2 * randint(15,30) + ceil(p.pw * 0.5)
 
@@ -137,7 +137,7 @@ def menu_fight(p):  # sourcery no-metrics
             rpcfightupdate(p)
     if usedpwpotions != 0:
         p.pw -= usedpwpotions * p.plus_pw
-    rpcupdate(p)
+    rpcfightupdate(p)
 
     if p.location == "sands":
         p.xp += 3
