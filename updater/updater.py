@@ -9,13 +9,13 @@ os.system("cls||clear")
 try:
     with contextlib.suppress(FileExistsError):
         os.mkdir('updater/download')
-    urllib.request.urlretrieve("https://github.com/Intofire-Studios/R4RPG/archive/refs/heads/master.zip", "updater/download/update.zip")
+    urllib.request.urlretrieve("https://github.com/Intofire-Studios/Chronicles-of-Archlight/archive/refs/heads/master.zip", "updater/download/update.zip")
     with zipfile.ZipFile('updater/download/update.zip', 'r') as zip_ref:
         zip_ref.extractall('updater/download/')
     os.remove('updater/download/update.zip')
-    for g in os.listdir('updater/download/R4RPG-master'):
-        os.replace(f'updater/download/R4RPG-master/{g}', f'updater/download/{g}')
-    shutil.rmtree('updater/download/R4RPG-master')
+    for g in os.listdir('updater/download/Chronicles-of-Archlight-master'):
+        os.replace(f'updater/download/Chronicles-of-Archlight-master/{g}', f'updater/download/{g}')
+    shutil.rmtree('updater/download/Chronicles-of-Archlight-master')
     shutil.rmtree('updater/download/updater')
     shutil.rmtree('extensions')
     shutil.rmtree('modules')

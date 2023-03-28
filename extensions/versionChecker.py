@@ -8,7 +8,7 @@ import time
 
 def versionChecker():
     try:
-        info = requests.get('https://raw.githubusercontent.com/Intofire-Studios/R4RPG/master/extensions/version.txt')
+        info = requests.get('https://raw.githubusercontent.com/Intofire-Studios/Chronicles-of-Archlight/master/extensions/version.txt')
         with open('extensions/version.txt', 'r') as f:
             curver = f.read()[9:-1]
         ver = int(str(info.content)[11:-3].replace('.', ''))
@@ -24,7 +24,7 @@ def versionChecker():
 
 def updaterChecker():
     try:
-        info = requests.get('https://raw.githubusercontent.com/Intofire-Studios/R4RPG/master/updater/version.txt')
+        info = requests.get('https://raw.githubusercontent.com/Intofire-Studios/Chronicles-of-Archlight/master/updater/version.txt')
         with open('updater/version.txt', 'r') as f:
             curver = f.read()[9:-1]
         ver = int(str(info.content)[11:-3].replace('.', ''))
@@ -38,12 +38,12 @@ def updater():
     try:
         with contextlib.suppress(FileExistsError):
             os.mkdir('updater/download')
-        urllib.request.urlretrieve("https://github.com/Intofire-Studios/R4RPG/archive/refs/heads/master.zip", "updater/download/update.zip")
+        urllib.request.urlretrieve("https://github.com/Intofire-Studios/Chronicles-of-Archlight/archive/refs/heads/master.zip", "updater/download/update.zip")
         with zipfile.ZipFile('updater/download/update.zip', 'r') as zip_ref:
             zip_ref.extractall('updater/download/')
         os.remove('updater/download/update.zip')
-        for g in os.listdir('updater/download/R4RPG-master'):
-            os.replace(f'updater/download/R4RPG-master/{g}', f'updater/download/{g}')
+        for g in os.listdir('updater/download/Chronicles-of-Archlight-master'):
+            os.replace(f'updater/download/Chronicles-of-Archlight-master/{g}', f'updater/download/{g}')
         os.remove('updater/updater.py')
         os.replace('updater/download/updater/updater.py', 'updater/updater.py')
         os.replace('updater/download/updater/version.txt', 'updater/version.txt')

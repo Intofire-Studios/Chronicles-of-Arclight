@@ -24,9 +24,9 @@ def mainmenu(p):
         rpcupdate(p)
         if versionChecker() == 1:
             print("---")
-            print('New version is available!', 'Download here — https://github.com/Intofire-Studios/R4RPG/releases')
+            print('New version is available!', 'Download here — https://github.com/Intofire-Studios/Chronicles-of-Archlight/releases')
             print('')
-            info = requests.get('https://raw.githubusercontent.com/Intofire-Studios/R4RPG/master/extensions/version.txt')
+            info = requests.get('https://raw.githubusercontent.com/Intofire-Studios/Chronicles-of-Archlight/master/extensions/version.txt')
             with open('extensions/version.txt', 'r') as f:
                 print(f'Current version: {f.read()[9:-1]}')
             print(f'New version: {str(info.content)[11:-3]}')
